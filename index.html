@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="row">
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+        </div>
+        <div class="row">
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+        </div>
+        <div class="row">
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+        </div>
+        <div class="row">
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+        </div>
+    </div> -->
+    <h1>Memory</h1>
+    <div class="container" ng-controller="memoryController">
+        <div class="row" ng-repeat="row in table track by $index">
+            <span class="cell" ng-repeat="col in row.row track by $index">
+				<!-- <span>{{col.txt}}</span> -->
+				<img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
+            </span>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/memoryController.js"></script>
+    <script src="./js/memoryService.js"></script>
+    <script src="./js/webService.js"></script>
+</body>
+
+</html>

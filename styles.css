@@ -1,0 +1,97 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /*top:0px;*/
+    margin:auto;
+}
+
+h1 {
+	text-align: center;
+	font-family: verdana;
+}
+
+.container {
+    width: 90%;
+    height: 50%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;	
+    margin: 0px auto;
+    /*margin-top:10%;*/
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cell {
+    background: tomato;
+    padding: 2%;
+    margin: 2%;
+    width: 22%;
+    height: 20%;
+    /*margin-top: 10px;
+    line-height: 150px;*/
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+}
+
+.cellImg {
+	max-width: 90%;
+	max-height: 90%;
+}
+
+
+/*.test {
+    color: red;
+}
+
+html,
+body {
+    height: 100%;
+    width:100%;
+    position: relative;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+    flex-direction: row;
+}
+
+.moi {
+	height: 100%;
+	border:1px solid purple;
+}
+
+.row {
+	border:1px solid green;
+    heigth: 25%;
+    background-color: green;
+    flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.cell {
+	height:100%;
+    border: 1px solid red;
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}*/
