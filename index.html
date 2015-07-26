@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body ng-controller="memoryController">
     <!-- <div class="container">
         <div class="row">
             <span class="cell"></span>
@@ -30,14 +30,19 @@
             <span class="cell"></span>
         </div>
     </div> -->
-    <h1>Memory</h1>
-    <div class="container" ng-controller="memoryController">
+    <header>
+        <div>Found: {{matchCount}}</div>
+        <h1>Memory</h1>
+        <div>Time: {{time}}</div>
+    </header>
+    <div class="container">
         <div class="row" ng-repeat="row in table track by $index">
             <span class="cell" ng-repeat="col in row.row track by $index">
 				<!-- <span>{{col.txt}}</span> -->
 				<img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
             </span>
         </div>
+    <div>{{infoText}}</div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>

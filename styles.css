@@ -2,14 +2,22 @@ html,
 body {
     height: 100%;
     width: 100%;
-    position: relative;
+    /*position: relative;*/
     /*top:0px;*/
-    margin:auto;
+    margin: 0px auto;
 }
 
-h1 {
+h1, div {
 	text-align: center;
 	font-family: verdana;
+}
+
+header {
+    width: 90%
+    margin: 0px auto;
+    display: flex;    
+    justify-content: space-around; 
+    align-items: center;
 }
 
 .container {
@@ -36,7 +44,7 @@ h1 {
 }
 
 .cell {
-    background: tomato;
+    background: LightSteelBlue;
     padding: 2%;
     margin: 2%;
     width: 22%;
