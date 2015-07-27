@@ -46,7 +46,10 @@ angular.module("myApp")
         };
 
         var matchFound = function() {
-            return openItems[0].pokemonId === openItems[1].pokemonId;
+            if(openItems[0].pokemonId === openItems[1].pokemonId) {
+            	return openItems[0].pokemonId;
+            }
+            return false;
         }
 
         var openItems = [];

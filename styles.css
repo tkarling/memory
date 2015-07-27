@@ -7,9 +7,17 @@ body {
     margin: 0px auto;
 }
 
-h1, div {
+h2, h3, h4, div, p {
 	/*text-align: center;*/
 	font-family: verdana;
+}
+
+p {
+    margin:2%;
+}
+
+h4 {
+    margin:4% 0px;    
 }
 
 header {
@@ -60,46 +68,18 @@ header {
 .cellImg {
 	max-width: 90%;
 	max-height: 90%;
+    margin:2%;
 }
 
-
-/*.test {
-    color: red;
+.infoRow {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;    
+    align-items: center;
 }
 
-html,
-body {
-    height: 100%;
-    width:100%;
-    position: relative;
+.infoImg {
+    max-width: 22%;
+    max-height: 100%;    
 }
-
-.container {
-	height: 100%;
-	width: 100%;
-	display: flex;
-    flex-direction: row;
-}
-
-.moi {
-	height: 100%;
-	border:1px solid purple;
-}
-
-.row {
-	border:1px solid green;
-    heigth: 25%;
-    background-color: green;
-    flex-direction: row;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-
-.cell {
-	height:100%;
-    border: 1px solid red;
-    background-color: blue;
-    color: white;
-    padding: 20px;
-    box-sizing: border-box;
-}*/
