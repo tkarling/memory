@@ -8,24 +8,30 @@ angular.module("myApp")
 	// $scope.infoText = "";
 
 	$scope.matchCount = 0;
+	$scope.tryCount = 0;
 	$scope.toggleSide = function(item) {
-		if($scope.infoText && ! $scope.infoText.includes("You Won")) {
-			$scope.infoText = "";
+		if($scope.infoText && $scope.infoText.includes("You Won")) {
+			return;
 		}
-		// console.log(item);
-		// item.img = "https://cdn3.iconfinder.com/data/icons/meteocons/512/moon-symbol-128.png";
+		$scope.infoText = "";
 		var matchFound = memoryService.toggleSide(item);
 		// console.log('matchFound', matchFound);
 		if(matchFound) {
 			$scope.infoText = "Match Found!";
 			$scope.matchCount++;
+			$scope.tryCount++;
 			if($scope.matchCount === 8) { // KORJATTU
 				var minAndSecs = $scope.time.split(":");
 				// $scope.infoText = "You Won in " + minAndSecs[0] + " mins " + minAndSecs[1] + " seconds!!"; 
 				$scope.infoText = "You Won in " + minsSecsTimeString() + "!!"; 
 				$interval.cancel(myInterval);
+				memoryService.showPics();
 			}
+		} else if (matchFound === false) {
+			$scope.tryCount++;
 		}
+		// else if matchFound === undefined do nothing
+		// console.log('tryCount', $scope.tryCount);
 	};
 
 	var colonTimeString = function() {
