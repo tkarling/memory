@@ -1,0 +1,13 @@
+<h4>{{myPokemons.length}} Customized Pokemon in Game <span ng-if="myPokemons.length < 8">(please choose max 8)</span></h4>
+<span ng-repeat="mpokemon in myPokemons | orderBy:'name'" ng-click="addPokemonAndgetInfo(mpokemon.id)">
+	{{mpokemon.name}}
+	<button ng-click="removePokemon(mpokemon)">x</button>
+</span>
+<p class="error-text" ng-if="errorText">{{errorText}}</p>
+
+<h4>Choose:</h4>
+<div ng-repeat="pokemon in pokemonList" ng-click="addPokemonAndgetInfo(pokemon.id, true)">
+    {{pokemon.name}}
+</div>
+
+<pokemon-info pokemon="currentPokemon"></pokemon-info>

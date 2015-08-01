@@ -1,12 +1,10 @@
 angular.module("myApp")
-    .controller("memoryController", function($scope, $interval, memoryService, webService) {
+    .controller("MemoryController", function($scope, $interval, memoryService, webService) {
         $scope.test = "Controller Test";
         $scope.wTest = webService.test;
         $scope.mTest = memoryService.test;
 
         $scope.table = memoryService.getTable();
-
-        // $scope.infoText = "";
 
         $scope.matchCount = 0;
         $scope.tryCount = 0;
@@ -56,10 +54,8 @@ angular.module("myApp")
         }, 1000, 60 * 60);
 
         var showPokemonInfo = function(pokemonId) {
-            // var pokemonId = "5";
             webService.getPokemonInfo(pokemonId).then(function(response) {
                 $scope.pokemon = response;
-                $scope.pokemon.img = "http://assets22.pokemon.com/assets/cms2/img/pokedex/full/00" + pokemonId + ".png";
                 // console.log("Ctrl pokemon", $scope.pokemon);
             });
         }

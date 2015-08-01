@@ -1,0 +1,18 @@
+<header>
+    <div>
+        <div>Found: {{matchCount}}</div>
+        <div>Tried: {{tryCount}}</div>
+    </div>
+    <h2>Memory</h2>
+    <div>Time: {{time}}</div>
+</header>
+<div class="container">
+    <div class="row" ng-repeat="row in table track by $index">
+        <span class="cell" ng-repeat="col in row.row track by $index">
+                <!-- <span>{{col.txt}}</span> -->
+        <img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
+        </span>
+    </div>
+    <div>{{infoText}}</div>
+    <pokemon-info pokemon="pokemon"></pokemon-info>
+</div>

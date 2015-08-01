@@ -1,18 +1,25 @@
 angular.module("myApp")
-    .service("memoryService", function() {
+    .service("memoryService", function(gamePokemonService, webService, GAMESIZE) {
         // console.log("init memoryService");
         this.test = "Memory Service Test"
 
         var backPic = "https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-01-128.png";
         var frontPic = "https://cdn3.iconfinder.com/data/icons/meteocons/512/moon-symbol-128.png";
-        // e.g. http://assets22.pokemon.com/assets/cms2/img/pokedex/full/002.png
-        var frontUrl = "http://assets22.pokemon.com/assets/cms2/img/pokedex/full/00"
+        // var backPic = "";
+        // var frontPic = "";
+        // var frontUrl = "";
+
         var table = [];
-        var cols = 4;
-        var rows = 4;
+        var cols = GAMESIZE.columns;
+        var rows = GAMESIZE.rows;
 
+        var gamePokemon = [];
 
-       var initTable = function(pokemonIds) {
+        this.getGamePokemon = function() {
+            return gamePokemon;
+        };
+
+        var initTable = function(pokemonIds) {
             var idIndex = 0;
             for (var i = 0; i < rows; i++) {
                 table[i] = {
@@ -27,16 +34,16 @@ angular.module("myApp")
                         text: str,
                         pokemonId: pokemonId,
                         img: backPic,
-                        imgFront: frontUrl + pokemonId + ".png"
+                        imgFront: webService.getPokemonImg(pokemonId)
                     });
                 }
             }
         };
 
         this.showPics = function() {
-        	for (var i = 0; i < rows; i++) {
+            for (var i = 0; i < rows; i++) {
                 for (var j = 0; j < cols; j++) {
-                	table[i].row[j].img = table[i].row[j].imgFront;
+                    table[i].row[j].img = table[i].row[j].imgFront;
                 }
             }
         };
@@ -46,8 +53,8 @@ angular.module("myApp")
         };
 
         var matchFound = function() {
-            if(openItems[0].pokemonId === openItems[1].pokemonId) {
-            	return openItems[0].pokemonId;
+            if (openItems[0].pokemonId === openItems[1].pokemonId) {
+                return openItems[0].pokemonId;
             }
             return false;
         }
@@ -82,15 +89,15 @@ angular.module("myApp")
             return undefined;
         }
 
-        var createIds = function() {
-            var arr = [];
-            var max = rows * cols / 2;
-            for (var i = 0; i < max; i++) {
-                arr.push(i + 1);
-                arr.push(i + 1);
-            }
-            return arr;
-        };
+        // var createIds = function() {
+        //     var arr = [];
+        //     var max = rows * cols / 2;
+        //     for (var i = 0; i < max; i++) {
+        //         arr.push(i + 1);
+        //         arr.push(i + 1);
+        //     }
+        //     return arr;
+        // };
 
         //from: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
         var shuffleIds = function(array) {
@@ -114,10 +121,12 @@ angular.module("myApp")
         }
 
 
-        var pokemonIds = createIds();
-        shuffleIds(pokemonIds);
-        // console.log(pokemonIds);
-        initTable(pokemonIds);
-        // console.log(table);
+        gamePokemonService.getIdArray().then(function(pokemonIds) {
+            console.log('Game pokemonIds', pokemonIds);
+            shuffleIds(pokemonIds);
+            // console.log(pokemonIds);
+            initTable(pokemonIds);
+            // console.log(table);
+        });
 
     });
