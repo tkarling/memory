@@ -78,9 +78,9 @@ header {
     margin: 2%;
 }
 
-.infoRow {
+/*.infoRow {
     width: 100%;
-    height: 30%;
+    height: 25%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -89,7 +89,7 @@ header {
 .infoImg {
     max-width: 22%;
     max-height: 100%;
-}
+}*/
 
 .menu {
     width: 100%;
