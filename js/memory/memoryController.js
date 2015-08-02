@@ -1,15 +1,17 @@
 angular.module("myApp")
-    .controller("MemoryController", function($scope, $interval, memoryService, webService) {
-        $scope.test = "Controller Test";
-        $scope.wTest = webService.test;
-        $scope.mTest = memoryService.test;
+    .controller("MemoryController", function($scope, $interval, GAMESIZE, memoryService, webService) {
+        // $scope.test = "Controller Test";
+        // $scope.wTest = webService.test;
+        // $scope.mTest = memoryService.test;
 
         $scope.table = memoryService.getTable();
 
         $scope.matchCount = 0;
         $scope.tryCount = 0;
         $scope.toggleSide = function(item) {
+            // console.log("item clicked ", item);
             if ($scope.infoText && $scope.infoText.includes("You Won")) {
+                showPokemonInfo(item.pokemonId);
                 return;
             }
             $scope.infoText = "";
@@ -20,7 +22,7 @@ angular.module("myApp")
                 $scope.matchCount++;
                 $scope.tryCount++;
                 showPokemonInfo(matchFoundId);
-                if ($scope.matchCount === 8) { // KORJATTU
+                if ($scope.matchCount === GAMESIZE.noOfPokemon) { // KORJATTU
                     var minAndSecs = $scope.time.split(":");
                     // $scope.infoText = "You Won in " + minAndSecs[0] + " mins " + minAndSecs[1] + " seconds!!"; 
                     $scope.infoText = "You Won in " + minsSecsTimeString() + "!!";

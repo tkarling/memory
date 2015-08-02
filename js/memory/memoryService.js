@@ -72,7 +72,8 @@ angular.module("myApp")
                 }
                 openItems = [];
                 itemsOpen = 0;
-            } else if (item.img === backPic) {
+            } 
+            if (item.img === backPic) {
                 if (itemsOpen === 0) {
                     openItems[0] = item;
                 } else if (itemsOpen === 1) {

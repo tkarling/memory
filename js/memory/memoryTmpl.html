@@ -1,15 +1,15 @@
-<header>
+<header class="score-header">
     <div><strong>Found: </strong>{{matchCount}}</div>
     <div><strong>Tried: </strong>{{tryCount}}</div>
     <div><strong>Time: </strong>{{time}}</div>
 </header>
 <div class="container">
     <div class="row" ng-repeat="row in table track by $index">
-        <span class="cell" ng-repeat="col in row.row track by $index">
+        <span class="cell mdl-color--indigo-200" ng-repeat="col in row.row track by $index">
                 <!-- <span>{{col.txt}}</span> -->
         <img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
         </span>
     </div>
     <div>{{infoText}}</div>
-    <pokemon-info pokemon="pokemon"></pokemon-info>
 </div>
+<pokemon-info pokemon="pokemon"></pokemon-info>

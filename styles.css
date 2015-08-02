@@ -59,7 +59,7 @@ header {
 }
 
 .cell {
-    background: LightSteelBlue;
+    /*background: LightSteelBlue;*/
     padding: 2%;
     margin: 2%;
     width: 22%;
@@ -108,4 +108,17 @@ header {
 
 .menu ul li a {
     text-decoration: none;
+}
+
+.poke-drawer-header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
+
+.score-header {
+    margin: 2% 0px;
 }

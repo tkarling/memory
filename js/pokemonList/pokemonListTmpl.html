@@ -1,13 +1,40 @@
-<h4>{{myPokemons.length}} Customized Pokemon in Game <span ng-if="myPokemons.length < 8">(please choose max 8)</span></h4>
-<span ng-repeat="mpokemon in myPokemons | orderBy:'name'" ng-click="addPokemonAndgetInfo(mpokemon.id)">
-	{{mpokemon.name}}
-	<button ng-click="removePokemon(mpokemon)">x</button>
-</span>
-<p class="error-text" ng-if="errorText">{{errorText}}</p>
+<style>
+.has-sub-title {
+    margin-bottom: 0px;
+}
 
-<h4>Choose:</h4>
-<div ng-repeat="pokemon in pokemonList" ng-click="addPokemonAndgetInfo(pokemon.id, true)">
-    {{pokemon.name}}
+.sub-title {
+    margin-top: 0px;
+}
+
+.selected-pokemon-card {
+    width: 100%;
+}
+
+.mdl-card__supporting-text p {
+	margin-left: 0px;
+}
+</style>
+<div class="mdl-card selected-pokemon-card">
+    <div class="mdl-card__title">
+        <h4 class="mdl-card__title-text">{{myPokemons.length}} Pokemon Selected</h4>
+        <h4 class="mdl-card__subtitle-text">(max 8)</h4>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <span ng-repeat="mpokemon in myPokemons | orderBy:'name'" ng-click="addPokemonAndgetInfo(mpokemon.id)">
+			{{mpokemon.name}}
+			<button class="mdl-button mdl-js-button mdl-button--icon" ng-click="removePokemon(mpokemon)">
+	 			 <i class="material-icons">delete</i>
+			</button>
+		<!-- <button ng-click="removePokemon(mpokemon)">x</button> -->
+		</span>
+        <p><span>Add Pokemon: </span>
+        <select ng-options="pokemon.name for pokemon in pokemonList" ng-model="pokemon" ng-change="addPokemonAndgetInfo(pokemon.id, true)" ng-disabled="maxNoOfPokemonSelected()"></select>
+        </p>
+        <p class="error-text" ng-if="errorText">{{errorText}}</p>
+
+
+    </div>
 </div>
 
 <pokemon-info pokemon="currentPokemon"></pokemon-info>
