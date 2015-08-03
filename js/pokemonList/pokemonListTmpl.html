@@ -7,34 +7,40 @@
     margin-top: 0px;
 }
 
-.selected-pokemon-card {
+.list-page-container {
     width: 100%;
+    max-width: 500px;
+    margin: 0px auto;
 }
 
 .mdl-card__supporting-text p {
-	margin-left: 0px;
+    margin-left: 0px;
+}
+
+.pm-name-and-button {
+    display: inline-block;
 }
 </style>
-<div class="mdl-card selected-pokemon-card">
+<div class="mdl-card list-page-container">
     <div class="mdl-card__title">
         <h4 class="mdl-card__title-text">{{myPokemons.length}} Pokemon Selected</h4>
         <h4 class="mdl-card__subtitle-text">(max 8)</h4>
     </div>
     <div class="mdl-card__supporting-text">
         <span ng-repeat="mpokemon in myPokemons | orderBy:'name'" ng-click="addPokemonAndgetInfo(mpokemon.id)">
-			{{mpokemon.name}}
-			<button class="mdl-button mdl-js-button mdl-button--icon" ng-click="removePokemon(mpokemon)">
-	 			 <i class="material-icons">delete</i>
-			</button>
-		<!-- <button ng-click="removePokemon(mpokemon)">x</button> -->
-		</span>
+            <span class="pm-name-and-button">
+                {{mpokemon.name}}
+                <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="removePokemon(mpokemon)">
+                     <i class="material-icons">delete</i>
+                </button>
+            </span>
+        </span>
         <p><span>Add Pokemon: </span>
-        <select ng-options="pokemon.name for pokemon in pokemonList" ng-model="pokemon" ng-change="addPokemonAndgetInfo(pokemon.id, true)" ng-disabled="maxNoOfPokemonSelected()"></select>
+            <select ng-options="pokemon.name for pokemon in pokemonList" ng-model="pokemon" ng-change="addPokemonAndgetInfo(pokemon.id, true)" ng-disabled="maxNoOfPokemonSelected()"></select>
         </p>
         <p class="error-text" ng-if="errorText">{{errorText}}</p>
-
-
     </div>
 </div>
-
-<pokemon-info pokemon="currentPokemon"></pokemon-info>
+<div class="list-page-container">
+    <pokemon-info pokemon="currentPokemon"></pokemon-info>
+</div>

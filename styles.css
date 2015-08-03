@@ -2,8 +2,6 @@ html,
 body {
     height: 100%;
     width: 100%;
-    /*position: relative;*/
-    /*top:0px;*/
     margin: 0px auto;
 }
 
@@ -12,7 +10,6 @@ h3,
 h4,
 div,
 p {
-    /*text-align: center;*/
     font-family: verdana;
 }
 
@@ -31,6 +28,14 @@ header {
     align-items: center;
 }
 
+.pm-header-row {
+    padding-left: 16px;
+}
+
+.pm-app-title {
+    padding-left: 4px;
+}
+
 .error-text {
     color: red;
 }
@@ -40,22 +45,32 @@ header {
 }
 
 .score-header {
-    max-width: 500px;
     margin: 2% auto;
 }
 
-.container {
+.pm-game-container {
     width: 96%;
+    margin: 0px auto;
+}
+
+.pm-board-container {
+    width: 100%;
     max-width: 500px;
     height: 50%;
     padding: 0px;
-    margin: 0px;
+    margin: 0px auto;
+
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0px auto;
-    /*margin-top:10%;*/
+}
+
+.pm-info-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 0px;
+    margin:0px auto;
 }
 
 .row {
@@ -82,19 +97,6 @@ header {
     height: 90%;
     margin: 2%;
 }
-
-/*.infoRow {
-    width: 100%;
-    height: 25%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.infoImg {
-    max-width: 22%;
-    max-height: 100%;
-}*/
 
 .menu {
     width: 100%;

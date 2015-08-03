@@ -13,8 +13,15 @@
     <!-- <title-and-menu></title-and-menu> -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row" ng-controller="MainController">
-                <span class="mdl-layout-title">Poke Memo</span>
+            <div class="mdl-layout__header-row pm-header-row" ng-controller="MainController">
+                <button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">menu</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-left">
+                    <li class="mdl-menu__item" ng-click="gotoPage('/memory')">Game</li>
+                    <li class="mdl-menu__item" ng-click="gotoPage('/choosePokemon')">Select Pokemon</li>
+                </ul>
+                <span class="mdl-layout-title pm-app-title">Poke Memo</span>
                 <div class="mdl-layout-spacer"></div>
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
                     <a class="mdl-navigation__link" href="/#/memory">Game</a>
@@ -25,16 +32,6 @@
                 </button>
             </div>
         </header>
-        <div class="mdl-layout__drawer mdl-color--indigo-900 mdl-color-text--indigo-50">
-            <!-- <title-and-menu></title-and-menu> -->
-            <header class="poke-drawer-header">
-                <span class="mdl-layout-title">Poke Memo</span>
-            </header>
-            <nav class="mdl-navigation mdl-color--blue-grey-800">
-                <a class="mdl-navigation__link" href="/#/memory">Game</a>
-                <a class="mdl-navigation__link" href="/#/choosePokemon">Select Pokemon</a>
-            </nav>
-        </div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <ng-view></ng-view>

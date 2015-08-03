@@ -28,5 +28,10 @@ angular.module("myApp")
         $scope.startGame = function() {
             memoryService.startGame();
             $location.path("/memory");
+        };
+
+        $scope.gotoPage = function(page) {
+            console.log("page", page);
+            $location.path(page);
         }
     });

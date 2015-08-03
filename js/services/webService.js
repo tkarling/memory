@@ -121,6 +121,60 @@ angular.module("myApp")
         }, {
             name: "Caterpie",
             resource_uri: "api/v1/pokemon/10/"
+        }, {
+            name: "Ivysaur1",
+            resource_uri: "api/v1/pokemon/12/"
+        }, {
+            name: "Venusaur1",
+            resource_uri: "api/v1/pokemon/13/"
+        }, {
+            name: "Charmander1",
+            resource_uri: "api/v1/pokemon/14/"
+        }, {
+            name: "Charmeleon1",
+            resource_uri: "api/v1/pokemon/15/"
+        }, {
+            name: "Charizard1",
+            resource_uri: "api/v1/pokemon/16/"
+        }, {
+            name: "Squirtle1",
+            resource_uri: "api/v1/pokemon/17/"
+        }, {
+            name: "Wartortle1",
+            resource_uri: "api/v1/pokemon/18/"
+        }, {
+            name: "Blastoise1",
+            resource_uri: "api/v1/pokemon/19/"
+        }, {
+            name: "Caterpie1",
+            resource_uri: "api/v1/pokemon/20/"
+        }, {
+            name: "Ivysaur2",
+            resource_uri: "api/v1/pokemon/22/"
+        }, {
+            name: "Venusaur2",
+            resource_uri: "api/v1/pokemon/23/"
+        }, {
+            name: "Charmander2",
+            resource_uri: "api/v1/pokemon/24/"
+        }, {
+            name: "Charmeleon2",
+            resource_uri: "api/v1/pokemon/25/"
+        }, {
+            name: "Charizard2",
+            resource_uri: "api/v1/pokemon/26/"
+        }, {
+            name: "Squirtle2",
+            resource_uri: "api/v1/pokemon/27/"
+        }, {
+            name: "Wartortle2",
+            resource_uri: "api/v1/pokemon/28/"
+        }, {
+            name: "Blastoise2",
+            resource_uri: "api/v1/pokemon/29/"
+        }, {
+            name: "Caterpie2",
+            resource_uri: "api/v1/pokemon/30/"
         }];
 
         this.getPokemonList = function() {

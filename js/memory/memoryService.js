@@ -7,7 +7,6 @@ angular.module("myApp")
         var frontPic = "./js/images/ic_brightness_3_white_48dp.png";
         // var backPic = "";
         // var frontPic = "";
-        // var frontUrl = "";
 
         var table = [];
         var cols = GAMESIZE.columns;

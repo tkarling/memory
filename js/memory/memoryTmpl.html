@@ -3,13 +3,16 @@
     <div><strong>Tried: </strong>{{stats.tryCount}}</div>
     <div><strong>Time: </strong>{{stats.timeString}}</div>
 </header>
-<div class="container">
-    <div class="row" ng-repeat="row in table track by $index">
-        <span class="cell mdl-color--indigo-200" ng-repeat="col in row.row track by $index">
-                <!-- <span>{{col.txt}}</span> -->
-        <img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
-        </span>
+<div class="mdl-grid pm-game-container">
+    <div class="mdl-cell mdl-cell--8-col pm-board-container">
+        <div class="row" ng-repeat="row in table track by $index">
+            <span class="cell mdl-color--indigo-200" ng-repeat="col in row.row track by $index">
+            <img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
+            </span>
+        </div>
+        <div class="info-text">{{infoText}}</div>
     </div>
-    <div class="info-text">{{infoText}}</div>
+    <div ng-if="pokemon" class="mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop pm-info-container">
+        <pokemon-info pokemon="pokemon"></pokemon-info>
+    </div>
 </div>
-<pokemon-info pokemon="pokemon"></pokemon-info>
