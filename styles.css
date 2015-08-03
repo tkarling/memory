@@ -35,8 +35,18 @@ header {
     color: red;
 }
 
+.info-text {
+    text-align: center;
+}
+
+.score-header {
+    max-width: 500px;
+    margin: 2% auto;
+}
+
 .container {
-    width: 90%;
+    width: 96%;
+    max-width: 500px;
     height: 50%;
     padding: 0px;
     margin: 0px;
@@ -56,25 +66,20 @@ header {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
 }
 
 .cell {
-    /*background: LightSteelBlue;*/
     padding: 2%;
     margin: 2%;
     width: 22%;
-    height: 20%;
-    /*margin-top: 10px;
-    line-height: 150px;*/
-    color: white;
-    font-weight: bold;
-    font-size: 3em;
+    height: 22%;
     text-align: center;
 }
 
 .cellImg {
-    max-width: 90%;
-    max-height: 90%;
+    width: 90%;
+    height: 90%;
     margin: 2%;
 }
 
@@ -119,6 +124,3 @@ header {
   height: 151px;
 }
 
-.score-header {
-    margin: 2% 0px;
-}

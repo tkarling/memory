@@ -23,4 +23,10 @@ angular.module("myApp")
                 redirectTo: "/memory"
             })
 
+    })
+    .controller("MainController", function($scope, $location, memoryService) {
+        $scope.startGame = function() {
+            memoryService.startGame();
+            $location.path("/memory");
+        }
     });

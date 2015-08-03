@@ -1,7 +1,7 @@
 <header class="score-header">
-    <div><strong>Found: </strong>{{matchCount}}</div>
-    <div><strong>Tried: </strong>{{tryCount}}</div>
-    <div><strong>Time: </strong>{{time}}</div>
+    <div><strong>Found: </strong>{{stats.matchCount}}</div>
+    <div><strong>Tried: </strong>{{stats.tryCount}}</div>
+    <div><strong>Time: </strong>{{stats.timeString}}</div>
 </header>
 <div class="container">
     <div class="row" ng-repeat="row in table track by $index">
@@ -10,6 +10,6 @@
         <img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
         </span>
     </div>
-    <div>{{infoText}}</div>
+    <div class="info-text">{{infoText}}</div>
 </div>
 <pokemon-info pokemon="pokemon"></pokemon-info>

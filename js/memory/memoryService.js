@@ -1,10 +1,10 @@
 angular.module("myApp")
-    .service("memoryService", function(gamePokemonService, webService, GAMESIZE) {
+    .service("memoryService", function($interval, gamePokemonService, webService, GAMESIZE) {
         // console.log("init memoryService");
         this.test = "Memory Service Test"
 
-        var backPic = "https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-01-128.png";
-        var frontPic = "https://cdn3.iconfinder.com/data/icons/meteocons/512/moon-symbol-128.png";
+        var backPic = "./js/images/ic_brightness_5_white_48dp.png";
+        var frontPic = "./js/images/ic_brightness_3_white_48dp.png";
         // var backPic = "";
         // var frontPic = "";
         // var frontUrl = "";
@@ -40,7 +40,7 @@ angular.module("myApp")
             }
         };
 
-        this.showPics = function() {
+        var showPics = function() {
             for (var i = 0; i < rows; i++) {
                 for (var j = 0; j < cols; j++) {
                     table[i].row[j].img = table[i].row[j].imgFront;
@@ -72,8 +72,9 @@ angular.module("myApp")
                 }
                 openItems = [];
                 itemsOpen = 0;
-            } 
+            }
             if (item.img === backPic) {
+                // console.log("itemsOpen", itemsOpen);
                 if (itemsOpen === 0) {
                     openItems[0] = item;
                 } else if (itemsOpen === 1) {
@@ -84,7 +85,12 @@ angular.module("myApp")
                     item.img = item.imgFront;
                 }
                 if (itemsOpen === 2) {
-                    return matchFound();
+                    var match = matchFound();
+                    ++stats.tryCount;
+                    if (match) {
+                        ++stats.matchCount;
+                    }
+                    return match;
                 }
             }
             return undefined;
@@ -122,12 +128,65 @@ angular.module("myApp")
         }
 
 
-        gamePokemonService.getIdArray().then(function(pokemonIds) {
-            console.log('Game pokemonIds', pokemonIds);
-            shuffleIds(pokemonIds);
-            // console.log(pokemonIds);
-            initTable(pokemonIds);
-            // console.log(table);
-        });
+        var setupTable = function() {
+            return gamePokemonService.getIdArray().then(function(pokemonIds) {
+                console.log('Game pokemonIds', pokemonIds);
+                shuffleIds(pokemonIds);
+                // console.log(pokemonIds);
+                initTable(pokemonIds);
+                // console.log(table);
+                return true;
+            });
+
+        }
+
+        var colonTimeString = function(seconds) {
+            var displaySeconds = seconds % 60;
+            var secondsStr = (displaySeconds < 10) ? "0" + displaySeconds : displaySeconds;
+            return Math.floor(seconds / 60).toFixed() + ":" + secondsStr;
+        };
+
+        var stats = {
+            seconds: 0,
+            timeString: "0.0",
+            tryCount: 0,
+            matchCount: 0,
+            gameOn: false
+        };
+        var myInterval;
+        var startTimer = function() {
+            stats.seconds = 0;
+            stats.timeString = "0.0";
+            stats.tryCount = 0;
+            stats.matchCount = 0;
+            stats.gameOn = true;
+
+            myInterval = $interval(function() {
+                ++stats.seconds;
+                stats.timeString = colonTimeString(stats.seconds);
+            }, 1000, 60 * 60);
+            // return timer;
+        };
+
+        var stopTimer = function() {
+            $interval.cancel(myInterval);
+            stats.gameOn = false;
+        };
+
+        this.getStats = function() {
+            return stats;
+        };
+
+        this.startGame = function() {
+            // console.log("starting game");
+            setupTable().then(function() {
+                startTimer();
+            })
+        };
+
+        this.stopGame = function() {
+            stopTimer();
+            showPics();
+        };
 
     });
