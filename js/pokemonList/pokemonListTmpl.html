@@ -27,7 +27,7 @@
         <h4 class="mdl-card__subtitle-text">(max 8)</h4>
     </div>
     <div class="mdl-card__supporting-text">
-        <span ng-repeat="mpokemon in myPokemons | orderBy:'name'" ng-click="addPokemonAndgetInfo(mpokemon.id)">
+        <span ng-repeat="mpokemon in myPokemons | orderBy:'name'" ng-click="addPokemonAndGetInfo(mpokemon)">
             <span class="pm-name-and-button">
                 {{mpokemon.name}}
                 <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="removePokemon(mpokemon)">
@@ -36,7 +36,7 @@
             </span>
         </span>
         <p><span>Add Pokemon: </span>
-            <select ng-options="pokemon.name for pokemon in pokemonList" ng-model="pokemon" ng-change="addPokemonAndgetInfo(pokemon.id, true)" ng-disabled="maxNoOfPokemonSelected()"></select>
+            <select ng-options="pokemon.name for pokemon in pokemonList | orderBy:'name'" ng-model="pokemon" ng-change="addPokemonAndGetInfo(pokemon, true)" ng-disabled="maxNoOfPokemonSelected()"></select>
         </p>
         <p class="error-text" ng-if="errorText">{{errorText}}</p>
     </div>

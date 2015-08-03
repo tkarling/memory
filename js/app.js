@@ -31,7 +31,7 @@ angular.module("myApp")
         };
 
         $scope.gotoPage = function(page) {
-            console.log("page", page);
+            // console.log("page", page);
             $location.path(page);
         }
     });
