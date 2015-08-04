@@ -1,27 +1,4 @@
-<style>
-.has-sub-title {
-    margin-bottom: 0px;
-}
-
-.sub-title {
-    margin-top: 0px;
-}
-
-.list-page-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0px auto;
-}
-
-.mdl-card__supporting-text p {
-    margin-left: 0px;
-}
-
-.pm-name-and-button {
-    display: inline-block;
-}
-</style>
-<div class="mdl-card list-page-container">
+<div class="mdl-card pm-list-page-container">
     <div class="mdl-card__title">
         <h4 class="mdl-card__title-text">{{myPokemons.length}} Pokemon Selected</h4>
         <h4 class="mdl-card__subtitle-text">(max 8)</h4>
@@ -41,6 +18,6 @@
         <p class="error-text" ng-if="errorText">{{errorText}}</p>
     </div>
 </div>
-<div class="list-page-container">
+<div class="pm-list-page-container">
     <pokemon-info pokemon="currentPokemon"></pokemon-info>
 </div>

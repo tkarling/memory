@@ -44,7 +44,7 @@ header {
     text-align: center;
 }
 
-.score-header {
+.pm-score-header {
     margin: 2% auto;
 }
 
@@ -73,7 +73,7 @@ header {
     margin:0px auto;
 }
 
-.row {
+.pm-row {
     width: 100%;
     height: 100%;
     padding: 0px;
@@ -84,7 +84,7 @@ header {
     align-items: stretch;
 }
 
-.cell {
+.pm-cell {
     padding: 2%;
     margin: 2%;
     width: 22%;
@@ -92,37 +92,28 @@ header {
     text-align: center;
 }
 
-.cellImg {
+.pm-cell img {
     width: 90%;
     height: 90%;
     margin: 2%;
 }
 
-.menu {
+.pm-list-page-container {
     width: 100%;
-    height: 50px;
+    max-width: 500px;
+    margin: 0px auto;
 }
 
-.menu ul {
-    float: right;
+.pm-list-page-container .mdl-card__title-text {
+    font-size: 20px;
 }
 
-.menu ul li {
-    list-style-type: none;
-    display: inline;
-    margin: 10px;
+.pm-list-page-container .mdl-card__supporting-text p {
+    margin-left: 0px;
 }
 
-.menu ul li a {
-    text-decoration: none;
+.pm-name-and-button {
+    display: inline-block;
 }
 
-.poke-drawer-header {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 16px;
-  height: 151px;
-}
 

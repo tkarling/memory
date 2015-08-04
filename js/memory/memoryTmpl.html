@@ -1,13 +1,13 @@
-<header class="score-header">
+<header class="pm-score-header">
     <div><strong>Found: </strong>{{stats.matchCount}}</div>
     <div><strong>Tried: </strong>{{stats.tryCount}}</div>
     <div><strong>Time: </strong>{{stats.timeString}}</div>
 </header>
 <div class="mdl-grid pm-game-container">
     <div class="mdl-cell mdl-cell--8-col pm-board-container">
-        <div class="row" ng-repeat="row in table track by $index">
-            <span class="cell mdl-color--indigo-200" ng-repeat="col in row.row track by $index">
-            <img class="cellImg" ng-src="{{col.img}}" ng-click="toggleSide(col)">
+        <div class="pm-row" ng-repeat="row in table track by $index">
+            <span class="pm-cell mdl-color--indigo-200" ng-repeat="col in row.row track by $index">
+                <img ng-src="{{col.img}}" ng-click="toggleSide(col)">
             </span>
         </div>
         <div class="info-text">{{infoText}}</div>

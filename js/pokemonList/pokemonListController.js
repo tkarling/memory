@@ -6,24 +6,8 @@ angular.module("myApp")
             // console.log("myPokemons", $scope.myPokemons);
         });
 
-        var getIdFromResourceUri = function(uri) {
-            // from http://stackoverflow.com/questions/10003683/javascript-get-number-from-string
-            var str = uri.slice(-4, -1);
-            str = str.replace( /^\D+/g, '');
-            // console.log("id", str);
-            return str;
-        };
-        getIdFromResourceUri("api/v1/pokemon/1/");
-
-        var setPokemonIds = function() {
-            for (var i = 0; i < $scope.pokemonList.length; i++) {
-                $scope.pokemonList[i].id = getIdFromResourceUri($scope.pokemonList[i].resource_uri);
-            }
-        };
-
         webService.getPokemonList().then(function(response) {
             $scope.pokemonList = response;
-            setPokemonIds();
             // console.log('PokemonListController List', $scope.pokemonList);
         });
 

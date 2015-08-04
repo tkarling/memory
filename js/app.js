@@ -9,11 +9,22 @@ angular.module("myApp")
         columns: 4,
         rows: 4
     })
+    .constant("TOPTEN_TYPES", {
+        thisByTime: "thisByTime",
+        thisByTries: "thisByTries",
+        everByTime: "everByTime",
+        everByTries: "everByTries",
+        maxItems: 4
+    })
     .config(function($routeProvider) {
         $routeProvider
             .when("/memory", {
                 templateUrl: "./js/memory/memoryTmpl.html",
                 controller: "MemoryController"
+            })
+            .when("/leaders", {
+                templateUrl: "./js/topten/toptenTmpl.html",
+                controller: "ToptenController"
             })
             .when("/choosePokemon", {
                 templateUrl: "./js/pokemonList/pokemonListTmpl.html",

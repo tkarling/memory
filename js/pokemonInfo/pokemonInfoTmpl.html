@@ -1,22 +1,23 @@
 <style>
-.info-grid {
+.pm-info-grid {
     width: 100%;
     height: 20%;
     padding: 0px;
     margin:0px auto;
 }
 
-.mdl-card__title-text {
+.pm-info-grid .mdl-card__title-text {
     font-size: 18px;
     overflow: scroll;
 }
 
-.info-card-image.mdl-card {
+.pm-info-card-image.mdl-card {
     background: url('{{pokemon.img}}') center / cover;
 }
 </style>
-<div ng-if="pokemon" class="mdl-grid info-grid">
-    <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--3-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--2dp info-card-image">
+
+<div ng-if="pokemon" class="mdl-grid pm-info-grid">
+    <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--3-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--2dp pm-info-card-image">
     </div>
     <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--5-col-tablet mdl-card mdl-cell--2-col-phone mdl-shadow--2dp">
         <div class="mdl-card__title">
