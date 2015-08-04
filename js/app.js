@@ -22,7 +22,7 @@ angular.module("myApp")
                 templateUrl: "./js/memory/memoryTmpl.html",
                 controller: "MemoryController"
             })
-            .when("/leaders", {
+            .when("/winners", {
                 templateUrl: "./js/topten/toptenTmpl.html",
                 controller: "ToptenController"
             })

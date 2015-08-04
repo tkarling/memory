@@ -1,3 +1,38 @@
-Moi
-<topten-list list-type="{{everByTime}}"></topten-list>
-<topten-list list-type="{{everByTries}}"></topten-list>
+<style>
+.pm-align-center {
+    text-align: center;
+}
+
+.pm-winner-input-card {
+    min-height: 100px;
+}
+
+.pm-winner-input-card ::-webkit-input-placeholder {
+   color: red;
+   text-align: center;
+}
+</style>
+<div class="mdl-grid">
+    <div ng-if="currentWinner" class="mdl-cell mdl-cell--8-col mdl-cell--12-col-desktop">
+        <div class="mdl-card mdl-shadow--2dp pm-winner-card pm-winner-input-card">
+            <h4 class="mdl-card__title-text">New Record!!</h4>
+        <div class="mdl-card__supporting-text">
+        	<p class="pm-align-center">
+            You won with {{currentWinner.tries}} tries in  {{currentWinner.seconds}} seconds
+            </p>
+            <form class="pm-align-center" ng-submit="addWinner(winnerName)" novalidate>
+                <div class="mdl-textfield">
+                    <input class="mdl-textfield__input pm-winner-input" type="text" placeholder="Please enter Your name" ng-model="data.winnerName" />
+                    <button ng-show="false">Invisible Button</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-desktop">
+        <topten-list list-type="{{everByTime}}"></topten-list>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-desktop">
+        <topten-list list-type="{{everByTries}}"></topten-list>
+    </div>
+</div>

@@ -6,11 +6,11 @@ angular.module("myApp")
 		scope: {
 			listType: "@"
 		},
-		controller: function($scope, toptenService) {
-			console.log("ToptenList dir controller init", $scope.listType);
-			$scope.test = "test moi";
+		controller: function($scope, toptenService, TOPTEN_TYPES) {
+			// console.log("ToptenList dir controller init", $scope.listType);
+			$scope.winningType = $scope.listType.indexOf("Time") !== -1 ? "time" : "tries";
 			$scope.leaderList = toptenService.getTopTen($scope.listType);
-			console.log($scope.listType, $scope.leaderList);
+			// console.log($scope.listType, $scope.leaderList);
 		}
 	}
 });

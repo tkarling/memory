@@ -1,5 +1,5 @@
 angular.module("myApp")
-    .controller("MemoryController", function($scope, $interval, GAMESIZE, memoryService, webService) {
+    .controller("MemoryController", function($scope, $interval, $location, GAMESIZE, memoryService, webService, toptenService) {
         // $scope.test = "Controller Test";
         // $scope.wTest = webService.test;
         // $scope.mTest = memoryService.test;
@@ -8,6 +8,21 @@ angular.module("myApp")
 
         $scope.matchCount = 0;
         $scope.tryCount = 0;
+
+        var handleWinning = function() {
+            $scope.infoText = "You Won in " + minsSecsTimeString($scope.stats.seconds) + "!!";
+            memoryService.stopGame();
+            // console.log("$scope.stats", $scope.stats);
+            var result = {
+                tries: $scope.stats.tryCount,
+                seconds: $scope.stats.seconds
+            };
+            if (toptenService.newRecord(result)) {
+                toptenService.setCurrentWinner(result);
+                $location.path("/winners");
+            }
+        };
+
         $scope.toggleSide = function(item) {
             // console.log("item clicked ", item);
             if (!$scope.stats.gameOn) {
@@ -23,10 +38,15 @@ angular.module("myApp")
                 $scope.infoText = "Match Found!";
                 showPokemonInfo(matchFoundId);
                 if ($scope.stats.matchCount === GAMESIZE.noOfPokemon) { // KORJATTU
-                    $scope.infoText = "You Won in " + minsSecsTimeString($scope.stats.seconds) + "!!";
-                    memoryService.stopGame();
+                    handleWinning();
+                    // $scope.infoText = "You Won in " + minsSecsTimeString($scope.stats.seconds) + "!!";
+                    // memoryService.stopGame();
+                    // if(toptenService.newRecord({tries: $scope.stats.tries, seconds: $scope.stats.seconds})) {
+                    //     askForName();
+                    // }
+
                 }
-            } 
+            }
         };
 
         var minsSecsTimeString = function(seconds) {
@@ -43,5 +63,13 @@ angular.module("myApp")
                 // console.log("Ctrl pokemon", $scope.pokemon);
             });
         }
+
+        // $scope.stats = {
+        //     seconds: 56,
+        //     tries: 8
+        // };
+        // toptenService.listsLoaded().then(function() {
+        //     handleWinning();
+        // });
 
     });

@@ -1,2 +1,46 @@
-Moi from topten Dir
-{{test}}
+<style>
+.pm-winner-card {
+    width: 100%;
+}
+
+.pm-winner-card .mdl-card__title-text {
+    font-size: 20px;
+    align-self: center;
+}
+
+.pm-winner-card table {
+	margin: 0px auto;
+}
+
+.pm-winner-card thead{
+	background-color: rgb(63,81,181);
+}
+
+.pm-winner-card th {
+	color: white;
+}
+
+
+
+</style>
+<div class="mdl-card mdl-shadow--2dp pm-winner-card">
+    <h4 class="mdl-card__title-text">Winners by {{winningType}}</h4>
+    <div class="mdl-card__supporting-text">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Winner</th>
+                    <th>Tries</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="leader in leaderList">
+                    <td class="mdl-data-table__cell--non-numeric">{{leader.who}}</td>
+                    <td>{{leader.tries}}</td>
+                    <td>{{leader.seconds}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
