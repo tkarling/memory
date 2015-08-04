@@ -8,7 +8,7 @@ angular.module("myApp")
 		},
 		controller: function($scope, toptenService, TOPTEN_TYPES) {
 			// console.log("ToptenList dir controller init", $scope.listType);
-			$scope.winningType = $scope.listType.indexOf("Time") !== -1 ? "time" : "tries";
+			$scope.winningType = $scope.listType.indexOf("Time") !== -1 ? "Time" : "Tries";
 			$scope.leaderList = toptenService.getTopTen($scope.listType);
 			// console.log($scope.listType, $scope.leaderList);
 		}

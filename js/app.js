@@ -14,7 +14,7 @@ angular.module("myApp")
         thisByTries: "thisByTries",
         everByTime: "everByTime",
         everByTries: "everByTries",
-        maxItems: 4
+        maxItems: 10
     })
     .config(function($routeProvider) {
         $routeProvider

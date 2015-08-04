@@ -40,6 +40,9 @@ angular.module("myApp")
         }
 
         var newRecordOnList = function(listType, result) {
+            if(lists[listType].length < TOPTEN_TYPES.maxItems) {
+                return true;
+            }
             if (listType === TOPTEN_TYPES.everByTime || listType === TOPTEN_TYPES.thisByTime) {
                 // console.log(listType, lists[listType].length, result);
                 return result.seconds < lastItem(lists[listType]).seconds;
@@ -55,34 +58,34 @@ angular.module("myApp")
         var addIfBetter = function(listType, result) {
             var better = newRecordOnList(listType, result);
             if (better) {
-                lists[listType].$add(result).then(function(response) {
+                return lists[listType].$add(result).then(function(response) {
                     // console.log("length", lists[listType].length, lists[listType]);
                     if (lists[listType].length > TOPTEN_TYPES.maxItems) {
                         // console.log("deleting", lists[listType].length);
-                        lists[listType].$remove(lists[listType][lists[listType].length - 1]);
+                        return lists[listType].$remove(lists[listType][lists[listType].length - 1]);
                     }
                 });
             }
-            return better;
         };
 
         var addIfShould = function(listType, result) {
             if (lists[listType].length < TOPTEN_TYPES.maxItems) {
-                lists[listType].$add(result);
+                return lists[listType].$add(result);
             } else {
                 // console.log("calling addIfBetter");
-                addIfBetter(listType, result)
+                return addIfBetter(listType, result)
             }
         };
 
         this.addToLists = function(result) {
-            addIfShould(TOPTEN_TYPES.everByTime, result);
-            addIfShould(TOPTEN_TYPES.everByTries, result);
+            return $q.all([addIfShould(TOPTEN_TYPES.everByTime, result), 
+            addIfShould(TOPTEN_TYPES.everByTries, result)]);
         };
 
         var currentWinner;
         this.setCurrentWinner = function(result) {
             currentWinner = result ? result : undefined;
+            // console.log("toptenService: currentWinner", currentWinner);
         }
 
         this.getCurrentWinner = function(result) {

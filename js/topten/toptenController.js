@@ -14,7 +14,11 @@ angular.module("myApp")
         	// console.log("scope.addWinner", $scope.data.winnerName, $scope.currentWinner)
         	if($scope.data.winnerName) {
 	        	$scope.currentWinner.who = $scope.data.winnerName;
-	        	toptenService.addToLists($scope.currentWinner);
+	        	toptenService.addToLists($scope.currentWinner).then(function(response) {
+                    $scope.data = {};
+                    toptenService.setCurrentWinner(undefined);
+                    $scope.currentWinner = toptenService.getCurrentWinner();
+                })
         	}
         }
 

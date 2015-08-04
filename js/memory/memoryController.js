@@ -15,7 +15,8 @@ angular.module("myApp")
             // console.log("$scope.stats", $scope.stats);
             var result = {
                 tries: $scope.stats.tryCount,
-                seconds: $scope.stats.seconds
+                seconds: $scope.stats.seconds,
+                timeString: $scope.stats.timeString
             };
             if (toptenService.newRecord(result)) {
                 toptenService.setCurrentWinner(result);
@@ -26,7 +27,7 @@ angular.module("myApp")
         $scope.toggleSide = function(item) {
             // console.log("item clicked ", item);
             if (!$scope.stats.gameOn) {
-                if ($scope.infoText && $scope.infoText.includes("You Won")) {
+                if ($scope.stats.seconds > 0) {
                     showPokemonInfo(item.pokemonId);
                 }
                 return;
@@ -65,8 +66,9 @@ angular.module("myApp")
         }
 
         // $scope.stats = {
-        //     seconds: 56,
-        //     tries: 8
+        //     seconds: 37,
+        //     tryCount: 14,
+        //     timeString: "0:37"
         // };
         // toptenService.listsLoaded().then(function() {
         //     handleWinning();
