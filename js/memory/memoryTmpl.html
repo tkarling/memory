@@ -5,9 +5,13 @@
 </header>
 <div class="mdl-grid pm-game-container">
     <div class="mdl-cell mdl-cell--8-col pm-board-container">
-        <div class="pm-row" ng-repeat="row in table track by $index">
-            <span class="pm-cell mdl-color--indigo-200" ng-repeat="col in row.row track by $index">
-                <img ng-src="{{col.img}}" ng-click="toggleSide(col)">
+        <div class="pm-row flip" ng-repeat="row in table track by $index">
+            <span class="pm-cell card mdl-color--indigo-200" 
+                ng-class="{'flipped':col.isFlipped}" 
+                ng-repeat="col in row.row track by $index" 
+                ng-click="toggleSide(col)">
+                <div class="face front"><img ng-src="{{col.img}}"></div>
+                <div class="face back"><img ng-src="{{col.img}}"></div>
             </span>
         </div>
         <div class="info-text">{{infoText}}</div>

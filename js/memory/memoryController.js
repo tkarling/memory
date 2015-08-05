@@ -40,12 +40,6 @@ angular.module("myApp")
                 showPokemonInfo(matchFoundId);
                 if ($scope.stats.matchCount === GAMESIZE.noOfPokemon) { // KORJATTU
                     handleWinning();
-                    // $scope.infoText = "You Won in " + minsSecsTimeString($scope.stats.seconds) + "!!";
-                    // memoryService.stopGame();
-                    // if(toptenService.newRecord({tries: $scope.stats.tries, seconds: $scope.stats.seconds})) {
-                    //     askForName();
-                    // }
-
                 }
             }
         };

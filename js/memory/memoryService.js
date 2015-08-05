@@ -63,6 +63,7 @@ angular.module("myApp")
         this.toggleSide = function(item) {
             if (itemsOpen >= 2) {
                 for (var i = 0; i < openItems.length; i++) {
+                    openItems[i].isFlipped = false;
                     if (matchFound()) {
                         openItems[i].img = frontPic;
                     } else {
@@ -80,6 +81,7 @@ angular.module("myApp")
                     openItems[1] = item;
                 }
                 if (itemsOpen < 2) {
+                    item.isFlipped = true;
                     itemsOpen++;
                     item.img = item.imgFront;
                 }
