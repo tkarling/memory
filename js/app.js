@@ -30,12 +30,16 @@ angular.module("myApp")
                 templateUrl: "./js/pokemonList/pokemonListTmpl.html",
                 controller: "PokemonListController"
             })
+            .when("/login", {
+                templateUrl: "./js/auth/auth.html",
+                controller: "AuthController"
+            })
             .otherwise({
                 redirectTo: "/memory"
             })
 
     })
-    .controller("MainController", function($scope, $location, memoryService) {
+    .controller("MainController", function($scope, $location, memoryService, authService) {
         $scope.startGame = function() {
             memoryService.startGame();
             $location.path("/memory");
@@ -45,4 +49,22 @@ angular.module("myApp")
             // console.log("page", page);
             $location.path(page);
         }
+
+        $scope.authData = authService.getAuthData();
+        $scope.$on("auth", function(event, args) {
+            $scope.authData = args.authData;
+            console.log("args", args, $scope.authData);
+        });
+
+        // $scope.$watch(function () {
+        //     authService.authData;
+        //     console.log("$digest");
+        // }, function() {
+        //     $scope.authData = authService.authData;
+        //     console.log("MainController $scope.authData", $scope.authData);
+        // }, true);
+
+        $scope.logout = function() {
+            authService.logout();
+        };
     });

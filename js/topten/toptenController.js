@@ -1,5 +1,5 @@
 angular.module("myApp")
-    .controller("ToptenController", function($scope, toptenService, TOPTEN_TYPES) {
+    .controller("ToptenController", function($scope, toptenService, authService, TOPTEN_TYPES) {
         // console.log("init ToptenController");
         $scope.everByTime = TOPTEN_TYPES.everByTime;
         $scope.everByTries = TOPTEN_TYPES.everByTries;
@@ -10,6 +10,8 @@ angular.module("myApp")
         });
 
         $scope.data = {};
+        var userData = authService.getUserData();
+        $scope.data.winnerName = userData ? userData.name : undefined;
         $scope.addWinner = function() {
         	// console.log("scope.addWinner", $scope.data.winnerName, $scope.currentWinner)
         	if($scope.data.winnerName) {

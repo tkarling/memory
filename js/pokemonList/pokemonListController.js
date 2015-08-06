@@ -1,5 +1,5 @@
 angular.module("myApp")
-    .controller("PokemonListController", function($scope, webService, gamePokemonService, GAMESIZE) {
+    .controller("PokemonListController", function($scope, webService, gamePokemonService, authService, GAMESIZE) {
 
         gamePokemonService.getMyPokemons().then(function(response) {
             $scope.myPokemons = response;
@@ -42,6 +42,8 @@ angular.module("myApp")
                 // console.log('maxNoOfPokemonSelected', $scope.myPokemons.length, GAMESIZE.noOfPokemon, $scope.pokemonList.length >= GAMESIZE.noOfPokemon);                
             }
             return $scope.myPokemons ? $scope.myPokemons.length >= GAMESIZE.noOfPokemon : false;
-        }
+        };
+
+        $scope.authData = authService.getAuthData();
 
     });

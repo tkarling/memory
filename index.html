@@ -20,6 +20,9 @@
                     <li class="mdl-menu__item" ng-click="gotoPage('/memory')">Game</li>
                     <li class="mdl-menu__item" ng-click="gotoPage('/winners')">Winners</li>
                     <li class="mdl-menu__item" ng-click="gotoPage('/choosePokemon')">Select Pokemon</li>
+                    <li ng-if="!authData" class="mdl-menu__item" ng-click="gotoPage('/login')">Login</li>
+                    <li ng-if="authData" class="mdl-menu__item" ng-click="gotoPage('/login')">User Data</li>
+                    <li ng-if="authData" class="mdl-menu__item" ng-click="logout()">Logout</li>
                 </ul>
                 <span class="mdl-layout-title pm-app-title">Poke Memo</span>
                 <div class="mdl-layout-spacer"></div>
@@ -53,6 +56,7 @@
     <script src="./js/topten/toptenController.js"></script>
     <script src="./js/topten/toptenListDir.js"></script>
     <script src="./js/pokemonInfo/pokemonInfoDir.js"></script>
+    <script src="./js/auth/authController.js"></script>
     <script src="./js/services/webService.js"></script>
     <script src="./js/services/gamePokemonService.js"></script>
     <script src="./js/services/toptenService.js"></script>

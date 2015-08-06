@@ -1,0 +1,53 @@
+<style>
+.pm-auth-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 2%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.pm-auth-card .mdl-card__title-text {
+    margin: 0px auto;
+    font-size: 20px;
+}
+</style>
+<div ng-if="!authData" class="mdl-card mdl-shadow--2dp pm-auth-card">
+    <form name="loginForm">
+        <div class="mdl-card__supporting-text">
+            <input class="mdl-textfield__input" type="email" ng-model="loginUser.email" placeholder="Email..." required>
+            <input class="mdl-textfield__input" type="password" ng-model="loginUser.password" placeholder="Password..." required>
+            <!-- <br> -->
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid">Login</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="register(loginUser)" ng-disabled="loginForm.$invalid">Register</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="reset(loginUser)">Reset Password</button>
+        </div>
+        <!--  <button ng-click="googlePlus()">Sign in with Google +</button> -->
+    </form>
+</div>
+<div ng-if="authData">
+    <div class="mdl-card mdl-shadow--2dp pm-auth-card">
+        <h4 class="mdl-card__title-text">You are logged in as: {{ authData.password.email }}</h4>
+        <div class="mdl-card__supporting-text">
+            <form name="userForm" ng-submit="saveUserData()">
+                <input class="mdl-textfield__input" type="text" ng-model="userData.name" placeholder="Gaming Name...">
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="mdl-card mdl-shadow--2dp pm-auth-card">
+        <div class="mdl-card__supporting-text">
+            <form>
+                <input class="mdl-textfield__input" type="password" ng-model="oldPassword" placeholder="Old password...">
+                <input class="mdl-textfield__input" type="password" ng-model="newPassword" placeholder="New password...">
+                <input class="mdl-textfield__input" type="password" ng-model="newPasswordConfirmed" placeholder="New password again...">
+                <div class="mdl-card__actions mdl-card--border">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="changePassword(email, oldPassword, newPassword, newPasswordConfirmed)">Change Passwword
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
