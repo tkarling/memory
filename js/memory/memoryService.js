@@ -131,7 +131,7 @@ angular.module("myApp")
 
         var setupTable = function() {
             return gamePokemonService.getIdArray().then(function(pokemonIds) {
-                console.log('Game pokemonIds', pokemonIds);
+                //console.log('Game pokemonIds', pokemonIds);
                 shuffleIds(pokemonIds);
                 // console.log(pokemonIds);
                 initTable(pokemonIds);
