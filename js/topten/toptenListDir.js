@@ -2,7 +2,7 @@ angular.module("myApp")
 .directive("toptenList", function() {
 	return {
 		restricted: "E",
-		templateUrl: "./js/topten/topTenListTmpl.html",
+		templateUrl: "./js/topten/toptenListTmpl.html",
 		scope: {
 			listType: "@"
 		},
