@@ -4,7 +4,7 @@ With this memory game user can:
 
 * play a game of memory w his/her favorite Pokemon
 * enjoy animation when flipping cards
-* see info on the Pokemon when finding mathing pair
+* see info on the Pokemon when finding matching pair
 * see how long the game took and how many tries were needed
 * see top ten charts based on time and tries respectively
 * choose the pokemon to play the game with
