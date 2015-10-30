@@ -1,3 +1,30 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+//font-size: 100%;
+//font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
 html,
 body {
     height: 100%;
@@ -66,8 +93,18 @@ header {
     padding: 0px;
     margin: 0px auto;
     list-style: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -84,8 +121,17 @@ header {
     padding: 0px;
     margin: 0px;
     list-style: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
 }
 
@@ -122,6 +168,7 @@ header {
 
 .flip {
     -webkit-perspective: 800;
+    perspective: 800;
     /*width: 280px;
     height: 70px;*/
     width: 100%;
@@ -133,11 +180,15 @@ header {
 
 .flip .card.flipped {
     -webkit-transform: rotatex(-180deg);
+    -ms-transform: rotatex(-180deg);
+    transform: rotatex(-180deg);
 }
 
 .flip .card {
     -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-transition: 1s;
+    transition: 1s;
 }
 
 .flip .card .face {
@@ -145,6 +196,7 @@ header {
     height: 100%;
     position: absolute;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     z-index: 2;
 }
 
@@ -156,5 +208,7 @@ header {
 
 .flip .card .back {
     -webkit-transform: rotatex(-180deg);
+    -ms-transform: rotatex(-180deg);
+    transform: rotatex(-180deg);
     cursor: pointer;
 }
